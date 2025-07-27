@@ -1,0 +1,15 @@
+<div class="login-container">
+  <h1>Login</h1>
+  <form>
+    <input type="text" name="email" placeholder="Email"
+      [(ngModel)]="email">
+    <input type="password" name="password" placeholder="Password"
+      [(ngModel)]="password">
+    <button type="submit">Login</button>
+  </form>
+  @if (!email() || !password()) {
+    <span class="warning">
+      Please fill in all required fields
+    </span>
+  }
+</div>
