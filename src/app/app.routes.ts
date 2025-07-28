@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { Login } from './pages/login/login';
 import { EmployeeService } from './services/employee.service';
+import { authGuard } from './shared/guards/auth.guard';
 
 export const routes: Routes = [
   { path: '',
@@ -17,9 +18,8 @@ export const routes: Routes = [
     }
   },
   { path: 'employees',
-    providers: [
-      EmployeeService
-    ],
+    canActivate: [authGuard],
+    providers: [EmployeeService],
     loadChildren: async () => {
       const m = await import('./pages/employees/employees.routes');
       return m.employeeRoutes;
