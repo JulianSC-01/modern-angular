@@ -4,7 +4,7 @@ export const TruncateLimit =
   new InjectionToken<number>('TruncateLimit');
 
 @Directive({
-  selector: '[appTruncate]'
+  selector: '[truncate]'
 })
 export class AppTruncate implements AfterViewInit {
   limit = input(

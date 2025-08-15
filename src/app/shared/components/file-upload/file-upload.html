@@ -1,0 +1,15 @@
+<div class="file-upload">
+  <label for="upload">{{ label() }}</label>
+  <input type="file" id="upload" (change)="onFileSelected($event)"/>
+  @if (errorMessage) {
+    <span class="error">
+      {{ errorMessage }}
+      Only the following properties are permitted:
+      <ul>
+        @for (type of accept(); track type) {
+          <li>{{ type }}</li>
+        }
+      </ul>
+    </span>
+  }
+</div>

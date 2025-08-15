@@ -1,26 +1,24 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { provideHttpClient } from '@angular/common/http';
-import { EmployeeService } from '../../../services/employee.service';
-import { EmployeeCreate } from './employee-create';
+import { ProjectList } from './project-list';
 
-describe('EmployeeCreate', () => {
-  let component: EmployeeCreate;
-  let fixture: ComponentFixture<EmployeeCreate>;
+describe('ProjectList', () => {
+  let component: ProjectList;
+  let fixture: ComponentFixture<ProjectList>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        EmployeeCreate
+        ProjectList
       ],
       providers: [
-        EmployeeService,
         provideHttpClient()
       ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(EmployeeCreate);
+    fixture = TestBed.createComponent(ProjectList);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

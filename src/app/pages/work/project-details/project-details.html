@@ -1,0 +1,24 @@
+<div class="project-details">
+  <h3>Project details</h3>
+  @if (project$ | async; as project) {
+    <span>
+      Project name: {{ project.name }}
+    </span>
+    <span>
+      Project description: {{ project.description }}
+    </span>
+    <span>
+      Logo: {{ project.image }}
+    </span>
+    <div class="subprojects">
+      <span>
+        Subprojects:
+      </span>
+      @for (subProjectId of project.subProjectIds; track subProjectId) {
+        <app-project-card
+          [projectId]="subProjectId">
+        </app-project-card>
+      }
+    </div>
+  }
+</div>

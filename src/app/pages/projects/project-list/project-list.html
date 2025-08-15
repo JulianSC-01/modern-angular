@@ -1,0 +1,5 @@
+<div class="row">
+  @for (project of (projects$ | async); track project.id) {
+    <app-project-card [projectId]="project.id"/>
+  }
+</div>
