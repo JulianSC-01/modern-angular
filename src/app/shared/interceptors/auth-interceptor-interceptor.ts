@@ -1,6 +1,7 @@
 import { HttpHandlerFn, HttpInterceptorFn, HttpRequest } from '@angular/common/http';
 import { inject } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import { isAuthorized } from '../operators/isAuthorized';
 
 export const authInterceptor: HttpInterceptorFn =
   (req : HttpRequest<any>, next: HttpHandlerFn) => {
@@ -13,5 +14,5 @@ export const authInterceptor: HttpInterceptorFn =
     }
   });
 
-  return next(newReq);
+  return next(newReq).pipe(isAuthorized());
 };

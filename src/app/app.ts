@@ -12,4 +12,12 @@ export class App {
   public constants = inject(Constants);
 
   protected readonly title = signal('hrms');
+
+  /**
+   * Use to test the log() MonoTypeOperator function
+   * located in the shared/operators folder.
+  ngOnInit(): void {
+    of(1, 2, 3).pipe(log('Message')).subscribe();
+  }
+  */
 }
