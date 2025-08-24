@@ -1,7 +1,7 @@
 <h2>
   Time Off Management
 </h2>
-<select [(ngModel)]="filteredType">
+<select [(ngModel)]="selectedType">
   <option value="">All</option>
   <option value="Vacation">Vacation</option>
   <option value="Sick Leave">Sick Leave</option>
@@ -22,7 +22,7 @@
     </tr>
   </thead>
   <tbody>
-    @for (request of filteredRequests(); track request.id) {
+    @for (request of requests(); track request.id) {
       <tr>
         <td>{{ request.employeeId }}</td>
         <td>{{ request.startDate }}</td>
@@ -52,7 +52,7 @@
 </table>
 <p>
   Total requests:
-  {{ filteredRequests().length }}
+  {{ requests().length }}
 </p>
 <p>
   Resolved requests:

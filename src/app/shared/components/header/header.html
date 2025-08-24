@@ -1,0 +1,39 @@
+<header>
+  <h2>HRMS</h2>
+  <button
+    (click)="notificationsOpen.set(true)"
+    title="View notifications"
+    type="button">
+    You have {{ unreadNotifications().length }} unread notifications.
+  </button>
+</header>
+<dialog [open]="notificationsOpen()">
+  <h3>Notifications</h3>
+  <ul>
+    @for (notification of notifications(); track notification.id) {
+      <li>
+        <h4>
+          {{ notification.title }}
+        </h4>
+        <p>
+          {{ notification.message }}
+        </p>
+        @if (!notification.read) {
+          <button
+            (click)="markAsRead(notification)"
+            type="button">
+            Mark as read
+          </button>
+        }
+      </li>
+    } @empty {
+      <li>
+        No notifications
+      </li>
+    }
+  </ul>
+  <button
+    (click)="notificationsOpen.set(false)">
+    Close
+  </button>
+</dialog>
